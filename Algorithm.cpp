@@ -71,14 +71,6 @@ int Dymamic(int capacity, vector<Item> items) {
             }
         }
     }
-
-    for (int i = 0; i <= n; ++i) {
-        for (int w = 0; w <= capacity; ++w) {
-            cout << dp[i][w] << " ";
-        }
-        cout << endl;
-    }
-
     return dp[n][capacity];
 }
 
@@ -90,15 +82,16 @@ int main() {
 
     cout << "number of items: "; cin >> n;
     cout << endl;
-
+    cout << "items:" << endl;
+    cout << "weight\tvalue" << endl;
     Item temp;
     for (int i = 0; i < n; i++) {
-        temp.weight = (temp.value = rand() % 1000) / (rand() % 33 + 1);
+        temp.weight = (temp.value = rand() % 1000 + 1) / (rand() % 33 + 1);
         capacity += temp.weight;
         items1.push_back(temp);
         items2.push_back(temp);
         items3.push_back(temp);
-        cout << temp.weight << " " << temp.value << endl;
+        cout << temp.weight << "\t" << temp.value << endl;
     }
     capacity *= 0.3;
 
